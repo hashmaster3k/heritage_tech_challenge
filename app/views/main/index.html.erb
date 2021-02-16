@@ -1,0 +1,35 @@
+
+<div class="title">
+  <h1>Pingsurance</h1>
+</div>
+<div class="add-leed-box">
+  <button type="button" class="btn btn-outline-dark">
+    <%= image_tag 'add_user.png', size: '50x50'%>
+    Add New Leed
+  </button>
+</div>
+
+<% if @leeds.empty? %>
+  <h3>No current leads</h3>
+<% else %>
+  <div class="leeds-table">
+    <table class="table table-light table-striped table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Number</th>
+          <th scope="col">Date Texted</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @leeds.each do |leed| %>
+          <tr>
+            <td><%= leed.first_name %></td>
+            <td><%= leed.phone %></td>
+            <td><%= leed.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
