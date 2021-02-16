@@ -14,6 +14,15 @@
  // Custom bootstrap variables must be set or imported *before* bootstrap.
  @import "bootstrap";
 
+.flash-message {
+  text-align: -webkit-center;
+}
+.flash-success {
+ max-width: fit-content;
+ padding: 4px;
+ background-color: #06b306;
+}
+
 .title {
   margin: 15px;
 }

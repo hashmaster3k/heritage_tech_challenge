@@ -10,6 +10,14 @@
   </head>
 
   <body>
+    <div class="flash-message">
+      <div class="flash-success">
+        <% flash.each do |type, message| %>
+          <%= message %>
+          <button type="button" class="close btn-dark" data-bs-dismiss="flash-message">Dismiss</button>
+        <% end %>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>
