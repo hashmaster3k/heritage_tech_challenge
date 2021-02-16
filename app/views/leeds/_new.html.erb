@@ -1,0 +1,31 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="myModalLabel">Add New Leed</h4>
+</div>
+<div class="modal-body">
+  <div id="new-lead">
+    <center>
+      <div class="new-leed-table">
+        <%= form_with url: '/', class: "form-group", local: true do |form| %>
+          <div class="form-group">
+            <%= form.label :first_name, "First Name" %><br>
+            <%= form.text_field :first_name, placeholder: "Tony", required: true %><br><br>
+          </div>
+          <div class="form-group">
+            <%= form.label :last_name, "Last Name" %><br>
+            <%= form.text_field :last_name, placeholder: "Bologna", required: true %><br><br>
+          </div>
+          <div class="form-group">
+            <%= form.label :phone, "Phone Number" %><br>
+            <%= form.text_field :phone, placeholder: "(555) 123-4567", required: true, maxlength: "14", size: "20"%><br><br>
+          </div>
+          <div class="form-group">
+            <%= form.label :message, "Text Message" %><br>
+            <%= form.text_area :message, placeholder: "Hi! Check out our insurance at ...", required: true, size: "30x5", id: 'text_message_area' %><br><br>
+          </div>
+          <%= form.submit "Create & Send", class:'btn btn-outline-success' %>
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cancel</button>
+        <% end %>
+      </div>
+  </center>
+  </div>
+</div>

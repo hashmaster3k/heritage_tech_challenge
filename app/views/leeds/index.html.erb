@@ -3,10 +3,12 @@
   <h1>Pingsurance</h1>
 </div>
 <div class="add-leed-box">
-  <button type="button" class="btn btn-outline-dark">
-    <%= image_tag 'add_user.png', size: '50x50'%>
-    Add New Leed
-  </button>
+  <%= link_to image_tag('add_user.png', size:'50x50') + "Add New Lead", new_leeds_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'btn btn-outline-dark'}  %>
+  <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content"></div>
+    </div>
+  </div>
 </div>
 
 <% if @leeds.empty? %>
