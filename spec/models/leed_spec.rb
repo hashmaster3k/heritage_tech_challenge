@@ -16,8 +16,31 @@ RSpec.describe Leed do
         last_name: 'Reeves',
         phone: '(555) 555-555'
       )
-      
+
       expect(Leed.count).to eq(1)
     end
+  end
+
+  describe 'instance methods' do
+    it 'should concatenate first name and last name' do
+      leed = Leed.create(
+        first_name: 'Keanu',
+        last_name: 'Reeves',
+        phone: '(555) 555-555'
+      )
+
+      expect(leed.name).to eq("Keanu Reeves")
+    end
+  end
+
+  it 'should format date for sent text' do
+    leed = Leed.create(
+      first_name: 'Keanu',
+      last_name: 'Reeves',
+      phone: '(555) 555-555'
+    )
+
+    today = Date.today.strftime("%m/%d/%Y")
+    expect(leed.date_text_sent).to eq(today)
   end
 end

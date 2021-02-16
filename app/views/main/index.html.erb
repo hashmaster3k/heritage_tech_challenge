@@ -24,9 +24,9 @@
       <tbody>
         <% @leeds.each do |leed| %>
           <tr>
-            <td><%= leed.first_name %></td>
+            <td><%= leed.name %></td>
             <td><%= leed.phone %></td>
-            <td><%= leed.created_at %></td>
+            <td><%= leed.date_text_sent %></td>
           </tr>
         <% end %>
       </tbody>
