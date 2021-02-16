@@ -25,7 +25,7 @@ class LeedsController < ApplicationController
       respond_to do |format|
         format.html{redirect_to root_url}
         format.js
-        flash[:succes] = "Lead, #{leed.name}, successfully created!"
+        flash[:success] = "Lead, #{leed.name}, successfully created!"
       end
     else
     end

@@ -10,14 +10,14 @@
   </head>
 
   <body>
-    <div class="flash-message">
-      <div class="flash-success">
-        <% flash.each do |type, message| %>
+    <center>
+      <% flash.each do |type, message| %>
+        <div class="alert alert-<%= type %>">
           <%= message %>
-          <button type="button" class="close btn-dark" data-bs-dismiss="flash-message">Dismiss</button>
-        <% end %>
-      </div>
-    </div>
+          <button type="button" class="close btn" data-bs-dismiss="alert">×</button>
+        </div>
+      <% end %>
+    </center>
     <%= yield %>
   </body>
 </html>
