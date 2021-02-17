@@ -10,7 +10,7 @@ class LeedsController < ApplicationController
 
     respond_to do |format|
       if @leed.save
-        # TextMessageService.new(params[:phone], params[:message]).call
+        TextMessageService.new(params[:phone], params[:message]).call
         flash.now[:success] = "Lead, #{@leed.name}, successfully created!"
         format.html
         format.js
