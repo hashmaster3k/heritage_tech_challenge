@@ -10,16 +10,7 @@
   </head>
 
   <body>
-    <center>
-      <div class="flash-message">
-        <% flash.each do |type, message| %>
-          <div class="alert alert-<%= type %>">
-            <%= message %>
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-          </div>
-        <% end %>
-      </div>
-    </center>
+    <%= render '/layouts/flash_message' %>
     <%= yield %>
   </body>
 </html>
