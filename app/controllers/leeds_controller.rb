@@ -4,7 +4,7 @@ class LeedsController < ApplicationController
       format.html
       format.js
     end
-    @leeds = Leed.all
+    @leeds = Leed.order("created_at DESC")
   end
 
   def new
@@ -15,19 +15,16 @@ class LeedsController < ApplicationController
   end
 
   def create
-    leed = Leed.new(
+    @leed = Leed.new(
       first_name: params[:first_name],
       last_name: params[:last_name],
       phone: params[:phone]
     )
-
-    if leed.save
-      respond_to do |format|
-        format.html{redirect_to root_url}
-        format.js
-        flash[:success] = "Lead, #{leed.name}, successfully created!"
-      end
-    else
+    @leed.save
+    respond_to do |format|
+      format.html{redirect_to root_url}
+      format.js
+      flash[:success] = "Lead, #{@leed.name}, successfully created!"
     end
   end
 end

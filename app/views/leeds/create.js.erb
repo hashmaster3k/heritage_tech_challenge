@@ -1,3 +1,2 @@
-$('#submit-new-lead-btn').click(function() {
-   $('#window-modal').modal('hide');
-});
+$('.modal').modal('hide');
+$('table > tbody > tr:first').before("<tr><td><%= @leed.name %></td><td><%= @leed.phone %></td><td><%= @leed.date_text_sent %></td></tr>");
