@@ -28,6 +28,11 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Use for sending sms-message
+gem 'twilio-ruby'
+# Use for protecting enviroment variables
+gem 'figaro'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -39,6 +44,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :test do
   gem 'shoulda-matchers', '~> 4.0'
+  gem 'capybara'
 end
 
 group :development, :test do

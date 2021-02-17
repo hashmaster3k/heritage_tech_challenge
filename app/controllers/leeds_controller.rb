@@ -1,35 +1,30 @@
 class LeedsController < ApplicationController
   def index
-    respond_to do |format|
-      format.html
-      format.js
-    end
     @leeds = Leed.order("created_at DESC")
   end
 
-  def new
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
+  def new; end
 
   def create
-    @leed = Leed.new(
-      first_name: params[:first_name],
-      last_name: params[:last_name],
-      phone: params[:phone]
-    )
+    @leed = Leed.new(leed_params)
 
-    if @leed.save
-      flash[:success] = "Lead, #{@leed.name}, successfully created!"
-      respond_to do |format|
+    respond_to do |format|
+      if @leed.save
+        TextMessageService.new(params[:phone], params[:message]).call
+        flash.now[:success] = "Lead, #{@leed.name}, successfully created!"
+        format.html
+        format.js
+      else
+        flash[:notice] = "Something went wrong. Contact administrator if message persists."
         format.html { redirect_to root_url }
         format.js
       end
-    else
-      flash[:alert] = "Something went wrong. Contact administrator if message persists."
-      render ''
     end
+  end
+
+  private
+
+  def leed_params
+    params.permit(:first_name, :last_name, :phone)
   end
 end
