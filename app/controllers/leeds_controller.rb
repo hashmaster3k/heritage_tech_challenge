@@ -20,11 +20,16 @@ class LeedsController < ApplicationController
       last_name: params[:last_name],
       phone: params[:phone]
     )
-    @leed.save
-    respond_to do |format|
-      format.html{redirect_to root_url}
-      format.js
+
+    if @leed.save
       flash[:success] = "Lead, #{@leed.name}, successfully created!"
+      respond_to do |format|
+        format.html { redirect_to root_url }
+        format.js
+      end
+    else
+      flash[:alert] = "Something went wrong. Contact administrator if message persists."
+      render ''
     end
   end
 end
