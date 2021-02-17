@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use for sending sms-message
 gem 'twilio-ruby'
+gem 'figaro'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
