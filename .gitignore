@@ -25,3 +25,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore enviroment variable storage file
+/config/secrets.yml
+
+# Ignore application configuration
+/config/application.yml
