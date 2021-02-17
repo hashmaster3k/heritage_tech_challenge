@@ -1,3 +1,8 @@
 $('.modal').modal('hide');
-$('table > tbody > tr:first').before("<tr><td><%= @leed.name %></td><td><%= @leed.phone %></td><td><%= @leed.date_text_sent %></td></tr>");
 $(".flash-message").html("<%= j render 'layouts/flash_message' %>")
+
+if ($('table tr').length === 1){
+  $('table').append("<tr><td><%= @leed.name %></td><td><%= @leed.phone %></td><td><%= @leed.date_text_sent %></td></tr>");
+} else {
+  $('table > tbody > tr:first').before("<tr><td><%= @leed.name %></td><td><%= @leed.phone %></td><td><%= @leed.date_text_sent %></td></tr>");
+};
