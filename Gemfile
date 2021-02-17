@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use for sending sms-message
 gem 'twilio-ruby'
+# Use for protecting enviroment variables
 gem 'figaro'
 
 # Use ActiveStorage variant
@@ -43,6 +44,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :test do
   gem 'shoulda-matchers', '~> 4.0'
+  gem 'capybara'
 end
 
 group :development, :test do
